@@ -21,7 +21,7 @@ const ChatContainer = () => {
   const fetchMessages = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/message/${selectedUser}`,
+        `${import.meta.env.VITE_REACT_BACKEND_URL}/api/message/${selectedUser}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -23,7 +23,7 @@ const ProfilePage = () => {
       setIsUpdating(true);
       try {
         const res = await axios.put(
-          "http://localhost:5000/api/user/updateprofile",
+          `${import.meta.env.VITE_REACT_BACKEND_URL}/api/user/updateprofile`,
           { profilePic: base64Image },
           {
             headers: {

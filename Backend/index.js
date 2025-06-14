@@ -5,6 +5,7 @@ const express = require("express");
 const { app, server } = require("./lib/socket"); // server is already declared here
 const UserRoutes = require("./routes/UserRoute");
 const MessageRoutes = require("./routes/MessageRoute");
+const path =require("path");
 
 dotenv.config();
 
@@ -18,6 +19,11 @@ app.use(cors());
 app.use("/api/user", UserRoutes);
 app.use("/api/message", MessageRoutes);
 
+
+const __dirname=path.resolve();
+
+
+
 // MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URL)
@@ -27,6 +33,15 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
   });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
+
 
 // Start server
 server.listen(PORT, () => {

@@ -5,7 +5,6 @@ const express = require("express");
 const { app, server } = require("./lib/socket"); // server is already declared here
 const UserRoutes = require("./routes/UserRoute");
 const MessageRoutes = require("./routes/MessageRoute");
-const path =require("path");
 
 dotenv.config();
 
@@ -20,7 +19,7 @@ app.use("/api/user", UserRoutes);
 app.use("/api/message", MessageRoutes);
 
 
-const __dirname=path.resolve();
+
 
 
 

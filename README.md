@@ -79,6 +79,7 @@ npm run dev
 bash
 Copy
 Edit
+
 Chat-Stream/
 ├── Backend/
 │   ├── controllers/
@@ -91,7 +92,8 @@ Chat-Stream/
 │   │   ├── context/
 │   │   └── pages/
 │   └── .env
-├── README.md
+
+
 💡 Future Improvements
 ✅ Emoji picker support
 
